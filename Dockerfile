@@ -6,3 +6,6 @@ RUN yes | unminimize \
     && apt-get update \
     && apt-get install -y man-db manpages \
     && rm -rf /var/lib/apt/lists/*
+
+RUN R -e "install.packages('matlab')"
+
