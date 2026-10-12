@@ -1,10 +1,13 @@
 # BIOS_611_Project
 
-This is a Dockerized Project. You can start this project on a mac or linux machine.
+Hi, this is my 611 Data Science Project. More to come.
 
-```
-git clone <this project>
-cd <this project>
+This is a Dockerized Project. You can start this project on a Mac or Linux machine.
+
+```bash
+git clone https://github.com/hannalee809/BIOS_611_Project.git
+cd BIOS_611_Project
 bash start.sh
 ```
-then go to localhost:8787
+
+Then go to http://localhost:8787.
