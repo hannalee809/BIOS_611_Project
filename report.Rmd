@@ -1,0 +1,78 @@
+---
+title: "Patterns and Severity of Non-Motorist Crashes in North Carolina"
+author: "Hanna Lee"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  out.width = "100%",
+  fig.align = "center"
+)
+```
+
+# Introduction
+
+# Data and Methods
+
+# Crash Patterns
+
+## Crashes by Time and Day
+
+```{r crashes-time-day, fig.cap="Reported crashes by time of day and day of week."}
+knitr::include_graphics("Crashes_by_Time_and_Day.png")
+```
+
+The reported number of crashes reported by time of day and day of the week were very similar for the weekday (Monday to Friday), with the peaks at around 7am and 5-6pm. I think this makes sense because a lot of people are commuting to and from work/school, so there are more cars and bikes on the road which could lead to more accidents. On the weekends, the number of crashes increases as the day progresses.
+
+## Pedestrian Crash Types
+
+```{r pedestrian-types, fig.cap="Ranked pedestrian crash types."}
+knitr::include_graphics("Pedestrian_Ranked_Crash_Type.png")
+```
+
+This is a ranked plot of pedestrian crash types in rural and urban areas. In rural areas, the most common pedestrian crash is when a pedestrian is walking along the road way, representing more than 30% of all crashes! I think this makes sense because rural areas do not have a lot of sidewalks, so there could be more accidents because people are walking along the road. In urban areas, ... 
+
+## Bicyclist Crash Types
+
+```{r bicyclist-types, fig.cap="Ranked bicyclist crash types."}
+knitr::include_graphics("Bicyclist_Ranked_Crash_Type.png")
+```
+
+# Crash Severity Patterns
+
+## Severity by Month
+
+```{r severity-month, fig.cap="Crash severity proportions by month."}
+knitr::include_graphics("Crash_Severity_Prop_by_Month.png")
+```
+
+## Severity by Day of Week
+
+```{r severity-day, fig.cap="Crash severity proportions by day of week."}
+knitr::include_graphics("Crash_Severity_Prop_by_Day_of_Week.png")
+```
+
+## Severity by Time of Day
+
+```{r severity-time, fig.cap="Crash severity proportions by time of day."}
+knitr::include_graphics("Crash_Severity_Prop_by_Time_of_Day.png")
+```
+
+
+# Logistic Regression
+
+```{r logistic-regression, fig.cap="Adjusted odds ratios and 95% confidence intervals for severe crash injury. Red indicates p < 0.05."}
+knitr::include_graphics("Logit_Reg_for_Crash_Severity.png")
+```
+
+# Conclusion
+
+# References
