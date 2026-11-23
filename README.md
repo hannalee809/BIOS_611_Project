@@ -3,6 +3,8 @@
 ## Dataset Information
 The dataset I chose comes from North Carolina's Department of Transportation (NCDOT), containing police-reported crashes in NC that involved a non-motorist (i.e., pedestrian, bicyclist). The 58328 crashes in this dataset are from January 2007 to December 2025. Each row represents a crash, and contains spatial coordinates, city/county, crash classifications, and person-level variables. This repository includes all the code I used to generate the figures and the corresponding report.
 
+The link to the dataset is here: https://www.arcgis.com/home/item.html?id=d00e97d23146472cb5da78fc3dbc0274#overview
+
 ## How to use this repository
 
 This is a Dockerized Project. You can start this project on a Mac or Linux machine.
