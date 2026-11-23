@@ -21,6 +21,9 @@ knitr::opts_chunk$set(
 # Introduction
 
 # Data and Methods
+The dataset I chose comes from North Carolina's Department of Transportation (NCDOT), containing police-reported crashes in NC that involved a non-motorist (i.e., pedestrian, bicyclist). The 58328 crashes in this dataset are from January 2007 to December 2025. There are 64 columns describing crash charateristics, including when and where the crash occurred, driver characteristics, and the road conditions.
+
+Some of the preliminary data cleaning I performed was converting all the string values in the column `CrashTypeGrp` to into lowercase letters. I also converted the values in the `CrashDate` column to YYYY-MM-DD format and created a new column with the associated day of the week. 
 
 # Crash Patterns
 
@@ -30,7 +33,7 @@ knitr::opts_chunk$set(
 knitr::include_graphics("Crashes_by_Time_and_Day.png")
 ```
 
-The reported number of crashes reported by time of day and day of the week were very similar for the weekday (Monday to Friday), with the peaks at around 7am and 5-6pm. I think this makes sense because a lot of people are commuting to and from work/school, so there are more cars and bikes on the road which could lead to more accidents. On the weekends, the number of crashes increases as the day progresses.
+The reported number of crashes reported by time of day and day of the week were very similar for the weekday (Monday to Friday), with the peaks at around 7am and 5-6pm. This makes sense because a lot of people are commuting to and from work/school, so there are more cars and bikes on the road which could lead to more accidents. On the weekends, the number of crashes increases as the day progresses, and it seems to peak during the night and early morning, around 6pm to 2am, which could reflect people driving late at night (and potentially tired or under the influence).
 
 ## Pedestrian Crash Types
 
@@ -38,7 +41,7 @@ The reported number of crashes reported by time of day and day of the week were 
 knitr::include_graphics("Pedestrian_Ranked_Crash_Type.png")
 ```
 
-This is a ranked plot of pedestrian crash types in rural and urban areas. In rural areas, the most common pedestrian crash is when a pedestrian is walking along the road way, representing more than 30% of all crashes! I think this makes sense because rural areas do not have a lot of sidewalks, so there could be more accidents because people are walking along the road. In urban areas, ... 
+For the next 2 plots, I was interested to see if there were differences in the types of pedestrian and biclycist crashes between rural and urban areas. For the pedestrian crashes (total=625683), there were 155475 crashes in urban areas and 470208 in rural areas. In the plot, I showed the top 10 crash types across both rural and urban areas. In rural areas, the most common pedestrian crash is when a pedestrian is walking along the road way, representing more than 30% of all crashes. This could be explained by the fact that rural areas do not have as many side walks as in urban areas, so pedestrians have to walk on the road with traffic.
 
 ## Bicyclist Crash Types
 
@@ -46,9 +49,13 @@ This is a ranked plot of pedestrian crash types in rural and urban areas. In rur
 knitr::include_graphics("Bicyclist_Ranked_Crash_Type.png")
 ```
 
+For the crashes involving a bicyclist (total=393785), there were 89840 rural crashes and 303945 urban crashes. Once again, I highlighted the top 10 crash types across both rural and urban areas. It was interesting to see that "motorist overtaking bicyclist" represented over 43% of the crashes in rural areas.
+
 # Crash Severity Patterns
 
 ## Severity by Month
+
+Next, I visualized the proportion of severe crashes over months, day of the week, and time of day. I defined severe crashes as `"A: Suspected Serious Injury"`, and `"K: Killed"`, and non-severe crashes as `"B: Suspected Minor Injury"`, `"C: Possible Injury"`, and `"O: No Injury"`. For the proportion of severe crashes per month, I was not surprised to see that there were more crashes in the winter time, since there are shorter daylight hours and ice and snow can make road conditions more dangerous. I was surprised to see that there was a high proportion of severe crashes in July and August. Some explanations for this could be that there are more vacations in the summer time so there are more travelers on the road, and the increase in social gatherings could lead to more increases in alcohol impaired driving and speeding.
 
 ```{r severity-month, fig.cap="Crash severity proportions by month."}
 knitr::include_graphics("Crash_Severity_Prop_by_Month.png")
@@ -56,11 +63,15 @@ knitr::include_graphics("Crash_Severity_Prop_by_Month.png")
 
 ## Severity by Day of Week
 
+The proportion of severe crashes through out the week is higher on the weekends, which aligns with increased social events on the weekends, and people driving home later. 
+
 ```{r severity-day, fig.cap="Crash severity proportions by day of week."}
 knitr::include_graphics("Crash_Severity_Prop_by_Day_of_Week.png")
 ```
 
 ## Severity by Time of Day
+
+Lastly, I plotted the proportion of the severe crashes over the time of day. It was very interesting to see how the proportion of severity increased throughout the day and into the night, with peaks around 3-5am.
 
 ```{r severity-time, fig.cap="Crash severity proportions by time of day."}
 knitr::include_graphics("Crash_Severity_Prop_by_Time_of_Day.png")
@@ -69,10 +80,15 @@ knitr::include_graphics("Crash_Severity_Prop_by_Time_of_Day.png")
 
 # Logistic Regression
 
+For my final visualization, I wanted to see which selected conditions had significant associations with the severity of crashes. I used a multivariable logistic regression to examine these associations between crash severity and lighting, time of day, speed limit, weather, location, and alcohol involvement. The figure shows the adjusted odds ratio and 95% confidence intervals. Statistically significant results (p<.05) are highlighted in red.
+
+Overall, higher speed limits, darkness, and alcohol involvement were associated with higher odds of severe injury. I thought it was interesting that winter precipitation was associated with lower odds, but it could mean that during these weather conditions, drivers tend to drive extra cautiously and slowly, making the crash less severe. 
+
 ```{r logistic-regression, fig.cap="Adjusted odds ratios and 95% confidence intervals for severe crash injury. Red indicates p < 0.05."}
 knitr::include_graphics("Logit_Reg_for_Crash_Severity.png")
 ```
 
 # Conclusion
 
-# References
+This dataset was really interesting to work with, because it contained a lot of crashes and different columns to look at. I really enjoyed digging deeper into potential patterns and explanations behind crash prevalence and severity. I wish this dataset had more information about the location of the crash, such as coordinates or address, because a lot of the location related columns were `NA`.
+
