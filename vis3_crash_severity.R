@@ -94,7 +94,7 @@ p<- ggplot(injury_df, aes(
   scale_y_continuous(labels = scales::label_percent()) +
   labs(
     title = "Proportion of Severe and Non-Severe Crashes by Day of the Week",
-    x = "Month",
+    x = "Day of the Week",
     y = "Proportion of Weekday Crashes",
     fill = "Crash Severity"
   ) +
