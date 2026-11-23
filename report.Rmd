@@ -18,8 +18,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Introduction
-
 # Data and Methods
 The dataset I chose comes from North Carolina's Department of Transportation (NCDOT), containing police-reported crashes in NC that involved a non-motorist (i.e., pedestrian, bicyclist). The 58328 crashes in this dataset are from January 2007 to December 2025. There are 64 columns describing crash charateristics, including when and where the crash occurred, driver characteristics, and the road conditions.
 
